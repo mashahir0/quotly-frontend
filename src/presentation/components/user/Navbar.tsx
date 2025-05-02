@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Home, MessageCircle, User, LogOut, LogIn, Menu } from "lucide-react";
+import { Home, MessageCircle, User, LogOut, LogIn } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../domain/redux/store"; // Adjust path as needed
 import { clearUser } from "../../../domain/redux/slilce/userSlice";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Navbar: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();

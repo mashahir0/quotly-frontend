@@ -14,7 +14,7 @@ const AdminLogin = () => {
     {}
   );
 
-  const  [adminLogin ,{ error}] = useAdminLoginMutation();
+  const  [adminLogin ] = useAdminLoginMutation();
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const validateForm = () => {

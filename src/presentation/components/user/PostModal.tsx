@@ -10,7 +10,7 @@ import {  useGetSavedQuotesQuery, useRemoveSavedQuoteMutation, useSaveQuoteMutat
 const PostModal = ({ post, onClose }: { post: any; onClose: () => void }) => {
   const [saveQuote] = useSaveQuoteMutation();
   const [removeQuote] = useRemoveSavedQuoteMutation();
-  const {data : savedQuotes , isError , isLoading,refetch} =useGetSavedQuotesQuery()
+  const {data : savedQuotes ,refetch} =useGetSavedQuotesQuery()
   const isSaved = savedQuotes?.quotes?.includes(post._id);
 
   const handleSavePost = async () => {
