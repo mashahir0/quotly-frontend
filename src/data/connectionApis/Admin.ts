@@ -8,7 +8,7 @@ interface RefreshResponse {
 }
 
 const baseQueryAdmin = fetchBaseQuery({
-  baseUrl: `${import.meta.env.VITE_BACKENDURL}api/admin`,
+  baseUrl: `${import.meta.env.VITE_BACKENDURL}/api/admin`,
   credentials: "include",
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("adminToken");
