@@ -7,7 +7,7 @@ interface RefreshResponse {
 }
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:3000/api/user",
+  baseUrl: `${import.meta.env.VITE_BACKENDURL}/api/user`,
   credentials: "include",
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("userToken");
