@@ -1,10 +1,12 @@
 import React from "react";
-import { useRouteError } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const ErrorFallback: React.FC = () => {
-  const error = useRouteError() as Error;
+interface ErrorFallbackProps {
+  error?: Error;
+  resetErrorBoundary?: () => void;
+}
 
+const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error, resetErrorBoundary }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -21,14 +23,16 @@ const ErrorFallback: React.FC = () => {
       >
         <h1 className="text-3xl font-bold mb-4 text-red-400">Oops! Something went wrong.</h1>
         <p className="mb-2 text-sm text-gray-300">{error?.message ?? "Unknown error occurred"}</p>
+      {resetErrorBoundary && (
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => window.location.reload()}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+          onClick={resetErrorBoundary}
           className="mt-4 bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded transition-all duration-200"
         >
-          Reload Page
+          Try Again
         </motion.button>
+      )}
       </motion.div>
     </motion.div>
   );
